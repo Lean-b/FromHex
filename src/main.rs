@@ -11,12 +11,7 @@ where P: AsRef<Path>, {
     Ok(io::BufReader::new(file).lines())
 }
 
-fn from_hex_to_text(buffer: &[u8]) -> String{
-    if buffer.len() % 2 != 0 {
-        eprintln!("Error: Odd-length hex string: {:?}", buffer);
-        return String::new();
-    }
-
+fn from_hex_to_text(buffer: &[u8]) -> String{ 
     let hex_string: String = buffer.iter().cloned().map(char::from).collect();
     let buffer = hex::decode(hex_string).expect("Failed to convert hex to string");
     let string = String::from_utf8_lossy(&buffer);

@@ -14,8 +14,7 @@ cargo run
   21   │         for line in lines{
   22   │             if let Ok(line_content) = line{
   23   │                 let clean = line_content.replace(" ", "");
-  24   │                 let convert_to_text = from_hex_to_text(clean.as_byt
-       │ es());
+  24   │                 let convert_to_text = from_hex_to_text(clean.as_bytes());
   25   │                 println!("{}", convert_to_text);
   26   │             } else {
   27   │                 print!("Error");
